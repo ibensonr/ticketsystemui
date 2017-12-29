@@ -5,6 +5,8 @@ import { AngularFontAwesomeModule } from '../../node_modules/angular-font-awesom
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { TicketsComponent } from './components/tickets/tickets.component';
+import { TicketsService } from './services/tickets.service';
+import { HttpModule } from '@angular/http';
 
 
 
@@ -16,9 +18,10 @@ import { TicketsComponent } from './components/tickets/tickets.component';
   ],
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [TicketsService],
   bootstrap: [TicketsComponent]
 })
 export class AppModule { }
