@@ -6,7 +6,7 @@ export class Ticket {
 
     constructor() {
         this.ticket_name = '';
-        this.ticket_name = '';
+        this.ticket_desc = '';
         this.status = '';        
     }
 }

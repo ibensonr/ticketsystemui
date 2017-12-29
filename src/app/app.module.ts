@@ -7,6 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { TicketsComponent } from './components/tickets/tickets.component';
 import { TicketsService } from './services/tickets.service';
 import { HttpModule } from '@angular/http';
+import { TicketCreateComponent } from './components/tickets/ticket-create/ticket-create.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,12 +16,14 @@ import { HttpModule } from '@angular/http';
   declarations: [
     AppComponent,        
     LoginComponent,
-    TicketsComponent
+    TicketsComponent,
+    TicketCreateComponent
   ],
   imports: [
     BrowserModule,
     AngularFontAwesomeModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [TicketsService],
   bootstrap: [TicketsComponent]

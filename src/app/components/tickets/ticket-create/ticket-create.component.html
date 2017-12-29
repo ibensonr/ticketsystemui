@@ -1,0 +1,34 @@
+<div class="col-sm-6">
+  <div *ngIf="successMessage" class="alert alert-success"> 
+    {{ successMessage }}
+  </div>
+  <h3>
+    Create New Ticket
+  </h3>
+
+  <form (ngSubmit)="createTicket()">
+
+    <div class="form-group" [ngClass]="{'has-error': ticketName.dirty && ticketName.invalid, 
+                'has-success': !(ticketName.dirty && ticketName.invalid) }">
+      Ticket Name
+      <input type="text" name="ticket_name" 
+        class="form-control" [(ngModel)]="ticket.ticket_name" required #ticketName="ngModel"/>
+      <span class="help-block" *ngIf="ticketName.dirty && ticketName.invalid">
+        Ticket Name is required
+      </span>
+    </div>
+
+    <div class="form-group">
+      Ticket Desc
+      <input type="text" name="ticket_desc" 
+        class="form-control" [(ngModel)]="ticket.ticket_desc" required #ticketDesc="ngModel" />
+        <span class="help-block" *ngIf="ticketDesc.dirty && ticketDesc.invalid">
+          Ticket Desc is required
+        </span>
+    </div>
+
+    <input type="submit" class="btn btn-info" [disabled]="form.invalid"/>
+
+  </form>
+
+</div>
