@@ -9,7 +9,7 @@ import { TicketsService } from './services/tickets.service';
 import { HttpModule } from '@angular/http';
 import { TicketCreateComponent } from './components/tickets/ticket-create/ticket-create.component';
 import { FormsModule } from '@angular/forms';
-
+import { ticketsRouting } from './app.routing';
 
 
 @NgModule({
@@ -23,9 +23,10 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AngularFontAwesomeModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    ticketsRouting
   ],
   providers: [TicketsService],
-  bootstrap: [TicketsComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

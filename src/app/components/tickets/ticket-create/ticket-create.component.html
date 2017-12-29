@@ -6,10 +6,9 @@
     Create New Ticket
   </h3>
 
-  <form (ngSubmit)="createTicket()">
+  <form (ngSubmit)="createTicket()" #ticketForm="ngForm">
 
-    <div class="form-group" [ngClass]="{'has-error': ticketName.dirty && ticketName.invalid, 
-                'has-success': !(ticketName.dirty && ticketName.invalid) }">
+    <div class="form-group" >
       Ticket Name
       <input type="text" name="ticket_name" 
         class="form-control" [(ngModel)]="ticket.ticket_name" required #ticketName="ngModel"/>
@@ -27,7 +26,7 @@
         </span>
     </div>
 
-    <input type="submit" class="btn btn-info" [disabled]="form.invalid"/>
+    <input type="submit" class="btn btn-info" [disabled]="ticketForm.form.invalid"/>
 
   </form>
 
