@@ -1,7 +1,7 @@
-import { TicketHistory } from "./tickethistory";
+import { Ticket } from "./ticket";
 
-export class Ticket {
-    id?: number;   
+export class TicketHistory {
+    id?: number;
     deptid: number; 
     status: string;
     modifiedon: string;
@@ -9,16 +9,16 @@ export class Ticket {
     description: string;
     comment: string;
     //prorityid: string;
-    tickethistory: TicketHistory;
+    //tickethistory: Ticket;
 
     constructor() {
-        this.deptid = 0;
+        
         this.status = '';
          //this.prorityid = ''; 
         this.modifiedon = '';  
         this.subject = '';
         this.description = '';
         this.comment = '';
-        this.tickethistory = null;
+        //this.tickethistory = new Ticket();
     }
 }

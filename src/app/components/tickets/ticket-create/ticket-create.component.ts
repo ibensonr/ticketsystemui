@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from '../../../models/ticket';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { DepartmentService } from '../../../services/department.service';
+import { TicketsService } from '../../../services/tickets.service';
+
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-ticket-create',
@@ -9,17 +13,74 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class TicketCreateComponent implements OnInit {
 
-  ticket : Ticket = new Ticket();
-  createForm: FormGroup;
+  ticketid: undefined;
+  departmentData;
+  ticket: Ticket = new Ticket();
+  ticketForm: FormGroup;
 
-  constructor() { }
+  constructor(private departmentService: DepartmentService,
+    private ticketService: TicketsService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
+
     this.ticket = new Ticket();
+
+    this.ticketid = this.route.snapshot.params['id'];
+    console.log(this.ticketid);
+
+    this.departmentService.getDepartments()
+      .subscribe(departments => {
+        console.log(departments);
+        this.departmentData = departments;
+      },
+      err => console.log(err));
+
+    if (this.ticketid != undefined) {
+      this.ticketService.getTicketDetails(this.ticketid)
+        .subscribe(ticket => {
+          console.log(ticket);
+          this.ticket = ticket;
+        },
+        err => console.log(err));
+    }
   }
 
   createTicket() {
+    console.log(this.ticket);
 
+    if (this.ticketid == undefined) {
+      this.ticketService.createTicket(this.ticket)
+        .subscribe(ticket => {
+          //this.successMessage = 'Employee Created Successfully'
+          //setTimeout(() => this.successMessage = '', 3000);
+          //this.alertService.sendAlert('Employee Created Successfully');
+
+          const link = ['/tickets', ticket.id];
+          //this.router.navigate(link);
+        },
+        errorMessage => {
+          //this.errorMessage = errorMessage;
+        });
+    }
+    else {
+      this.updateTicket();
+    }
+  }
+
+  updateTicket() {
+    console.log(this.ticket);
+
+    this.ticketService.updateTicket(this.ticket)
+      .subscribe(ticket => {
+        //this.successMessage = 'Employee Created Successfully'
+        //setTimeout(() => this.successMessage = '', 3000);
+        //this.alertService.sendAlert('Employee Created Successfully');
+      },
+      errorMessage => {
+        //this.errorMessage = errorMessage;
+      });
+    //const link = ['/tickets/create', ticket.id];
+    //this.router.navigate(link);
   }
 
 }

@@ -1,9 +1,4 @@
 
-
-<a routerLink="tickets/create" class="btn btn-sm btn-info">
-  Create New Ticket
-</a>
-
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-body">
@@ -26,24 +21,32 @@
     <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">My Tickets
-          <button type="submit" class="btn-primary pull-right">Create New Ticket</button>
+          <!-- <button type="submit" class="btn-primary pull-right">Create New Ticket</button> -->
+          <a routerLink="tickets/create" class="btn btn-sm btn-info pull-right">
+            Create New Ticket
+          </a>
         </div>
         <div class="panel-body">
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Ticket Name</th>
-                <th scope="col">Ticket Desc</th>
-                <th scope="col">Ticket Status</th>                
+                <th scope="col">TicketID</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Status</th>
+                <th scope="col">Last Updated</th>
+                <th scope="col">Serviced By</th>
+                <th scope="col"></th>        
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let ticket of ticketData;let i = index">
                 <th scope="row">{{i+1}}</th>
-                <td>{{ticket.ticket_name}}</td>
-                <td>{{ticket.ticket_desc}}</td>
-                <td>{{ticket.status}}</td>                
+                <td>{{ticket.subject}}</td>
+                <td>{{ticket.status}}</td>
+                <td>{{ticket.modifiedon}}</td>                
+                <td></td>
+                <td><button (click)="updateTicket(ticket)" class="btn btn-primary">Update</button>
+                  <button (click)="getTicketDetails(ticket)" class="btn btn-primary">Details</button></td>
               </tr>              
             </tbody>
           </table>

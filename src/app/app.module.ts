@@ -10,6 +10,8 @@ import { HttpModule } from '@angular/http';
 import { TicketCreateComponent } from './components/tickets/ticket-create/ticket-create.component';
 import { FormsModule } from '@angular/forms';
 import { ticketsRouting } from './app.routing';
+import { DepartmentService } from './services/department.service';
+import { TicketDetailsComponent } from './components/tickets/ticket-details/ticket-details.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { ticketsRouting } from './app.routing';
     AppComponent,        
     LoginComponent,
     TicketsComponent,
-    TicketCreateComponent
+    TicketCreateComponent,
+    TicketDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { ticketsRouting } from './app.routing';
     FormsModule,
     ticketsRouting
   ],
-  providers: [TicketsService],
+  providers: [TicketsService, DepartmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

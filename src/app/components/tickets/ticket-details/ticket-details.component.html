@@ -1,0 +1,16 @@
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Subject - {{ticket.subject}}</div>
+  <div class="panel-body">
+    <p>Description - {{ticket.description}}</p>
+  </div>
+  <!-- List group -->
+  <ul class="list-group">Comments
+    <li class="list-group-item" *ngFor="let thistory of ticket.tickethistory">
+      
+     {{thistory.modifiedon}}  - {{thistory.tbluser != null ? thistory.tbluser.uname : ''}} - {{thistory.comment}}
+     
+    </li>
+  </ul>
+</div>
