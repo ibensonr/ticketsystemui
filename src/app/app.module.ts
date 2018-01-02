@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ticketsRouting } from './app.routing';
 import { DepartmentService } from './services/department.service';
 import { TicketDetailsComponent } from './components/tickets/ticket-details/ticket-details.component';
+import { UserService } from './services/user.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { TicketDetailsComponent } from './components/tickets/ticket-details/tick
     FormsModule,
     ticketsRouting
   ],
-  providers: [TicketsService, DepartmentService],
+  providers: [TicketsService, DepartmentService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

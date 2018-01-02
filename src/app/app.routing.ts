@@ -3,11 +3,12 @@ import { RouterModule, Route } from '@angular/router';
 import { TicketsComponent } from './components/tickets/tickets.component';
 import { TicketCreateComponent } from './components/tickets/ticket-create/ticket-create.component';
 import { TicketDetailsComponent } from './components/tickets/ticket-details/ticket-details.component';
+import { LoginComponent } from './components/login/login.component';
 
 const ticketsRoutes: Route[] = [
     {
         path: '',
-        component: TicketsComponent        
+        component: LoginComponent        
     },
     {
         path: 'tickets',

@@ -1,16 +1,111 @@
+<div class="container">
 
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Subject - {{ticket.subject}}</div>
-  <div class="panel-body">
-    <p>Description - {{ticket.description}}</p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="content">
+        <h2 class="header">
+          Quo fugiat aut dicta.
+          <span class="pull-right">
+            <a href="http://ticketit.kordy.info/tickets/3/complete" class="btn btn-success">Mark Complete</a>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ticket-edit-modal">
+              Edit
+            </button>
+            <a href="http://ticketit.kordy.info/tickets/3" class="btn btn-danger deleteit" form="delete-ticket-3" node="Quo fugiat aut dicta.">Delete</a>
+
+          </span>
+        </h2>
+        <div class="panel well well-sm">
+          <div class="panel-body">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <p>
+                  <strong>Owner</strong>: Ms. Patricia Glover II</p>
+                <p>
+                  <strong>Status</strong>:
+                  <span style="color: #f40700">Bug</span>
+
+                </p>
+                <p>
+                  <strong>Priority</strong>:
+                  <span style="color: #069900">
+                    Low
+                  </span>
+                </p>
+              </div>
+              <div class="col-md-6">
+                <p>
+                  <strong>Responsible</strong>: German Larkin</p>
+                <p>
+                  <strong>Category</strong>:
+                  <span style="color: #7e0099">
+                    Customer Services
+                  </span>
+                </p>
+                <p>
+                  <strong>Created</strong>: 4 days ago</p>
+                <p>
+                  <strong>Last Update</strong>: 18 hours ago</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <p> Aut deserunt dolores molestiae totam. Consectetur non voluptatem delectus molestiae consequatur enim alias. Perspiciatis
+            deleniti cupiditate ullam quo iure.
+            <br>
+            <br> Mollitia quia at est et adipisci omnis rerum. Tempore rerum at quia enim eaque sapiente. Sint et et ad quod
+            corporis. Quasi distinctio accusantium voluptatum et.
+            <br>
+            <br> Tenetur voluptas nobis ut omnis et dignissimos saepe. Pariatur vel fugiat et deserunt possimus eum. Aliquid
+            sed quas ratione ratione quia ut. Eum ducimus est iure nihil cumque molestias dolorem doloribus. Veniam officiis
+            et et dolore pariatur deleniti. </p>
+        </div>
+      </div>
+      <form method="POST" action="http://ticketit.kordy.info/tickets/3" accept-charset="UTF-8" id="delete-ticket-3">
+        <input name="_method" type="hidden" value="DELETE">
+        <input name="_token" type="hidden" value="ZTQap7XjFz1d719lmzlTlf7Fi2KVCESWntvp7AJ9">
+      </form>
+    </div>
   </div>
-  <!-- List group -->
-  <ul class="list-group">Comments
-    <li class="list-group-item" *ngFor="let thistory of ticket.tickethistory">
-      
-     {{thistory.modifiedon}}  - {{thistory.tbluser != null ? thistory.tbluser.uname : ''}} - {{thistory.comment}}
-     
-    </li>
-  </ul>
+
+  <h2>Comments</h2>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        German Larkin
+        <span class="pull-right"> 3 days ago </span>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="content">
+        <p> Autem non sequi voluptate illum. Commodi est eveniet quas sapiente ut. Quia eum fuga eveniet non excepturi sequi
+          ea vel. Voluptas repellendus neque possimus accusamus error nulla.
+          <br>
+          <br> Atque possimus eveniet illo corrupti est id non. Dolores ad provident fugiat voluptatem eos modi sunt. Maxime
+          est omnis deserunt distinctio et odio voluptatum quaerat. Aspernatur autem occaecati quisquam neque eum.
+          <br>
+          <br> Quia dignissimos dolore sequi asperiores temporibus delectus id. Et animi qui eveniet dolor non ratione et. Illum
+          facilis maxime pariatur qui voluptatem labore. Eveniet vero sed esse non et quia provident natus. </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Subject - {{ticket.subject}}</div>
+    <div class="panel-body">
+      <p>Description - {{ticket.description}}</p>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let thistory of ticket.tickethistory">
+
+        {{thistory.modifiedon}} - {{thistory.tbluser != null ? thistory.tbluser.uname : ''}} - {{thistory.comment}}
+
+      </li>
+    </ul>
+  </div>
+
 </div>
