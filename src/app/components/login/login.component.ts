@@ -9,11 +9,11 @@ import { User } from '../../models/user';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  userData: User;  
+  userData: User;
   username: string;
   password: string;
- 
-  constructor(private router: Router, private userService: UserService) { 
+
+  constructor(private router: Router, private userService: UserService) {
     this.username = '';
     this.password = '';
   }
@@ -28,13 +28,21 @@ export class LoginComponent implements OnInit {
       .subscribe(user => {
         console.log(user);
         this.userData = user;
-      },
-      err => console.log(err));
+        if (this.userData != undefined && this.userData != null) {
+          sessionStorage.setItem('userid', this.userData.id.toString());
 
-    if (this.userData != undefined && this.userData != null) {
-      sessionStorage.setItem('userid', this.userData.id.toString());
-      const link = ['/tickets'];
-      this.router.navigate(link);
-    }
+          if (this.userData.departments == null || this.userData.departments.length == 0) {
+            const link = ['/tickets'];
+            this.router.navigate(link);
+          }
+          else if (this.userData.departments.length > 0)
+          {
+            const link = ['/tickets/helpdeskview'];
+            this.router.navigate(link);
+          }
+        }
+      },
+      err => console.log(err))
+
   }
 }

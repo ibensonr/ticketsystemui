@@ -1,15 +1,34 @@
 
+<!-- <div class="panel-body">
+  <ul class="nav nav-pills">
+      <li role="presentation" class="active">
+          <a href="http://ticketit.kordy.info/tickets">Active Tickets
+              <span class="badge">
+                   0                    </span>
+          </a>
+      </li>
+      <li role="presentation" class="">
+          <a href="http://ticketit.kordy.info/tickets/complete">Completed Tickets
+              <span class="badge">
+                  3                    </span>
+          </a>
+      </li>
+
+      
+  </ul>
+</div> -->
+
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="form-group">
         <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Active Tickets</button>
-          <span class="badge">14</span>
+          <button type="submit" class="btn btn-primary">Active Tickets
+          <span class="badge">14</span></button>
         </div>
         <div class="col-md-4">
-          <button type="submit" class="btn btn-primary">Completed Tickets</button>
-          <span class="badge">14</span>
+          <button type="submit" class="btn btn-primary">Completed Tickets
+          <span class="badge">14</span></button>
         </div>
       </div>
     </div>
@@ -20,11 +39,12 @@
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-heading">My Tickets
+        <div class="panel-heading">
+          <h2>My Tickets
           <!-- <button type="submit" class="btn-primary pull-right">Create New Ticket</button> -->
           <a routerLink="/tickets/create" class="btn btn-sm btn-info pull-right">
             Create New Ticket
-          </a>
+          </a></h2>
         </div>
         <div class="panel-body">
           <table class="table table-bordered table-striped">
@@ -34,19 +54,23 @@
                 <th scope="col">Subject</th>
                 <th scope="col">Status</th>
                 <th scope="col">Last Updated</th>
-                <th scope="col">Serviced By</th>
-                <th scope="col"></th>        
+                <!-- <th scope="col">Serviced By</th> -->
+                <th scope="col"></th> 
+                     
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let ticket of ticketData;let i = index">
-                <th scope="row">{{i+1}}</th>
-                <td>{{ticket.subject}}</td>
-                <td>{{ticket.status}}</td>
+                <td scope="row">{{ticket.id}}</td>
+                <td><a routerLink="/tickets/details/{{ticket.id}}">{{ticket.subject}}</a></td>
+                <td>{{ticket.status == 0 ? 'Open' : 'Closed'}}</td>
                 <td>{{ticket.modifiedon}}</td>                
-                <td></td>
+                <!-- <td></td> -->
                 <td><button (click)="updateTicket(ticket)" class="btn btn-primary">Update</button>
-                  <button (click)="getTicketDetails(ticket)" class="btn btn-primary">Details</button></td>
+                  <!-- <button (click)="getTicketDetails(ticket)" class="btn btn-primary">Details</button> -->
+                  
+                  <button class="btn btn-primary pull-right" *ngIf="ticket.status == 1">ReOpen</button>
+                </td>
               </tr>              
             </tbody>
           </table>

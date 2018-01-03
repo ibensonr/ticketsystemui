@@ -9,7 +9,7 @@ export class Ticket {
     description: string;
     comment: string;
     //prorityid: string;
-    tickethistory: TicketHistory;
+    tickethistory: TicketHistory[];
 
     constructor() {
         this.deptid = 0;

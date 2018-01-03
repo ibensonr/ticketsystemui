@@ -28,6 +28,7 @@ export class UserService {
     let user = new User();
     user.id = data.id;
     user.username = data.uname;
+    user.departments = data.tbluserdepartments;
     return user;
   }
 

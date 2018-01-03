@@ -18,7 +18,7 @@ export class TicketsService {
   constructor(private http: Http) { }
 
   getUserTickets(userid) {
-    return this.http.get(this.ticketsUrl + "?id=" + userid)
+    return this.http.get(this.ticketsUrl + "/GetTicketForUser/" + userid)
       .map(response => response.json())
       .map(tickets => this.formatAllTickets(tickets))
       .catch(this.handleErrors);
@@ -88,13 +88,13 @@ export class TicketsService {
     return ticket;
   }
 
-  createTicket(ticket) {
+  createTicket(ticket, userid) {
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
-      .post(this.ticketsUrl + "?userid=1", ticket, { headers: headers })
+      .post(this.ticketsUrl + "?userid="+userid, ticket, { headers: headers })
       .map(response => response.json())
       .catch(this.handleErrors);
   }

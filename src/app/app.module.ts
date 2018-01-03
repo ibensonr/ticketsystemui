@@ -13,6 +13,7 @@ import { ticketsRouting } from './app.routing';
 import { DepartmentService } from './services/department.service';
 import { TicketDetailsComponent } from './components/tickets/ticket-details/ticket-details.component';
 import { UserService } from './services/user.service';
+import { TicketAgentviewComponent } from './components/tickets/ticket-agentview/ticket-agentview.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { UserService } from './services/user.service';
     LoginComponent,
     TicketsComponent,
     TicketCreateComponent,
-    TicketDetailsComponent
+    TicketDetailsComponent,
+    TicketAgentviewComponent
   ],
   imports: [
     BrowserModule,
