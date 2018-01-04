@@ -1,3 +1,59 @@
-<p>
-  ticket-agentview works!
-</p>
+
+<div class="container">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="form-group">
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Active Tickets
+            <span class="badge">14</span></button>
+          </div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">Completed Tickets
+            <span class="badge">14</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2>My Assigned Tickets
+            <!-- <button type="submit" class="btn-primary pull-right">Create New Ticket</button> -->
+            <!-- <a routerLink="/tickets/create" class="btn btn-sm btn-info pull-right">
+              Create New Ticket
+            </a> -->
+          </h2>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">TicketID</th>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Last Updated</th>
+                  <th scope="col"></th> 
+                       
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ticket of ticketData;let i = index">
+                  <td scope="row">{{ticket.id}}</td>
+                  <td><a routerLink="/tickets/details/{{ticket.id}}">{{ticket.subject}}</a></td>
+                  <td>{{ticket.status == 0 ? 'Open' : 'Closed'}}</td>
+                  <td>{{ticket.modifiedon}}</td>                
+                  <td>
+                    <button (click)="resolveTicket(ticket)" *ngIf="ticket.status == 0" class="btn btn-primary">Resolve</button>
+                  </td>
+                </tr>              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

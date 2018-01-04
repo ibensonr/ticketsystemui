@@ -5,6 +5,7 @@ import { TicketCreateComponent } from './components/tickets/ticket-create/ticket
 import { TicketDetailsComponent } from './components/tickets/ticket-details/ticket-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { TicketAgentviewComponent } from './components/tickets/ticket-agentview/ticket-agentview.component';
+import { TicketResolveComponent } from './components/tickets/ticket-resolve/ticket-resolve.component';
 
 const ticketsRoutes: Route[] = [
     {
@@ -31,7 +32,12 @@ const ticketsRoutes: Route[] = [
     {
         path: 'tickets/helpdeskview',
         component: TicketAgentviewComponent
+    },
+    {
+        path: 'tickets/helpdeskresolve/:id',
+        component: TicketResolveComponent
     }
+    
     
 
 ];

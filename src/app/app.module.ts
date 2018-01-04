@@ -14,6 +14,7 @@ import { DepartmentService } from './services/department.service';
 import { TicketDetailsComponent } from './components/tickets/ticket-details/ticket-details.component';
 import { UserService } from './services/user.service';
 import { TicketAgentviewComponent } from './components/tickets/ticket-agentview/ticket-agentview.component';
+import { TicketResolveComponent } from './components/tickets/ticket-resolve/ticket-resolve.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TicketAgentviewComponent } from './components/tickets/ticket-agentview/
     TicketsComponent,
     TicketCreateComponent,
     TicketDetailsComponent,
-    TicketAgentviewComponent
+    TicketAgentviewComponent,
+    TicketResolveComponent
   ],
   imports: [
     BrowserModule,

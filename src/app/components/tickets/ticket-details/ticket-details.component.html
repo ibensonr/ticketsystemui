@@ -74,6 +74,23 @@
 
   <h2>Comments</h2>
 
+  <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          {{ticket.user != null ? ticket.user.uname : ''}}
+          <span class="pull-right">  {{ticket.modifiedon}} </span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="content">
+          <p> 
+              {{ticket.comment}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+
   <div class="panel panel-default" *ngFor="let thistory of ticket.tickethistory">
     <div class="panel-heading">
       <h3 class="panel-title">

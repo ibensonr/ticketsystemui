@@ -68,9 +68,9 @@ export class TicketCreateComponent implements OnInit {
   }
 
   updateTicket() {
+    var userID = sessionStorage.getItem('userid');
     console.log(this.ticket);
-
-    this.ticketService.updateTicket(this.ticket)
+    this.ticketService.updateTicket(userID, this.ticket)
       .subscribe(ticket => {
         //this.successMessage = 'Employee Created Successfully'
         //setTimeout(() => this.successMessage = '', 3000);

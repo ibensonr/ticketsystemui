@@ -1,4 +1,5 @@
 import { TicketHistory } from "./tickethistory";
+import { User } from "./user";
 
 export class Ticket {
     id?: number;   
@@ -10,6 +11,7 @@ export class Ticket {
     comment: string;
     //prorityid: string;
     tickethistory: TicketHistory[];
+    user: User
 
     constructor() {
         this.deptid = 0;
@@ -20,5 +22,6 @@ export class Ticket {
         this.description = '';
         this.comment = '';
         this.tickethistory = null;
+        this.user = null;
     }
 }

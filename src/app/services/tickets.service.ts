@@ -17,6 +17,14 @@ export class TicketsService {
 
   constructor(private http: Http) { }
 
+  getAgentTickets(userid) {
+    return this.http.get(this.ticketsUrl + "/GetTicketForAgent/" + userid)
+      .map(response => response.json())
+      .map(tickets => this.formatAllTickets(tickets))
+      .catch(this.handleErrors);
+
+  }
+
   getUserTickets(userid) {
     return this.http.get(this.ticketsUrl + "/GetTicketForUser/" + userid)
       .map(response => response.json())
@@ -71,6 +79,7 @@ export class TicketsService {
     ticket.status = data.status;
     ticket.modifiedon = data.modifiedon;
     ticket.tickethistory = data.tbltickethistory;
+    ticket.user = data.tbluser;
     return ticket;
   }
 
@@ -94,18 +103,29 @@ export class TicketsService {
     headers.append('Content-Type', 'application/json');
 
     return this.http
-      .post(this.ticketsUrl + "?userid="+userid, ticket, { headers: headers })
+      .post(this.ticketsUrl + "?userid=" + userid, ticket, { headers: headers })
       .map(response => response.json())
       .catch(this.handleErrors);
   }
 
-  updateTicket(ticket) {
+  updateTicket(userid, ticket) {
 
     var headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
     return this.http
-      .put(this.ticketsUrl + "?id=" + ticket.id, ticket, { headers: headers })
+      .put(this.ticketsUrl + "?userid=" + userid + "&ticketid=" + ticket.id, ticket, { headers: headers })
+      .map(response => response.json())
+      .catch(this.handleErrors);
+  }
+
+  closeTicket(userid, ticketid, comment) {
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http
+      .delete(this.ticketsUrl + "?userid=" + userid + "&ticketid=" + ticketid + "&comment=" + comment, { headers: headers })
       .map(response => response.json())
       .catch(this.handleErrors);
   }

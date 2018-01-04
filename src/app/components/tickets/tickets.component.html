@@ -66,10 +66,11 @@
                 <td>{{ticket.status == 0 ? 'Open' : 'Closed'}}</td>
                 <td>{{ticket.modifiedon}}</td>                
                 <!-- <td></td> -->
-                <td><button (click)="updateTicket(ticket)" class="btn btn-primary">Update</button>
+                <td>
+                  <button (click)="updateTicket(ticket)" class="btn btn-primary">Update</button>
                   <!-- <button (click)="getTicketDetails(ticket)" class="btn btn-primary">Details</button> -->
                   
-                  <button class="btn btn-primary pull-right" *ngIf="ticket.status == 1">ReOpen</button>
+                  <!-- <button class="btn btn-primary pull-right" *ngIf="ticket.status == 1">ReOpen</button> -->
                 </td>
               </tr>              
             </tbody>
