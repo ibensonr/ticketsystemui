@@ -47,9 +47,9 @@ export class TicketCreateComponent implements OnInit {
 
   createTicket() {
     console.log(this.ticket);
-    var userID = sessionStorage.getItem('userid');
+    var userData = JSON.parse(sessionStorage.getItem('userid'));
     if (this.ticketid == undefined) {
-      this.ticketService.createTicket(this.ticket, userID)
+      this.ticketService.createTicket(this.ticket, userData.id)
         .subscribe(ticket => {
           //this.successMessage = 'Employee Created Successfully'
           //setTimeout(() => this.successMessage = '', 3000);
@@ -68,9 +68,9 @@ export class TicketCreateComponent implements OnInit {
   }
 
   updateTicket() {
-    var userID = sessionStorage.getItem('userid');
+    var userData = JSON.parse(sessionStorage.getItem('userid'));
     console.log(this.ticket);
-    this.ticketService.updateTicket(userID, this.ticket)
+    this.ticketService.updateTicket(userData.id, this.ticket)
       .subscribe(ticket => {
         //this.successMessage = 'Employee Created Successfully'
         //setTimeout(() => this.successMessage = '', 3000);

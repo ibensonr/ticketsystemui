@@ -43,9 +43,9 @@ export class TicketResolveComponent implements OnInit {
   }
 
   updateTicket() {
-    var userID = sessionStorage.getItem('userid');
+    var userData = JSON.parse(sessionStorage.getItem('userid'));
     console.log(this.ticket);
-    this.ticketService.updateTicket(userID, this.ticket)
+    this.ticketService.updateTicket(userData.id, this.ticket)
       .subscribe(ticket => {
       },
       errorMessage => {
@@ -54,9 +54,9 @@ export class TicketResolveComponent implements OnInit {
   }
 
   closeTicket() {
-    var userID = sessionStorage.getItem('userid');
+    var userData = JSON.parse(sessionStorage.getItem('userid'));
     console.log(this.ticket);
-    this.ticketService.closeTicket(userID, this.ticket.id, this.ticket.comment)
+    this.ticketService.closeTicket(userData.id, this.ticket.id, this.ticket.comment)
       .subscribe(ticket => {
       },
       errorMessage => {

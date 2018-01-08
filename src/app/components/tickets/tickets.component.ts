@@ -14,8 +14,8 @@ export class TicketsComponent implements OnInit {
   constructor(private ticketService: TicketsService,private router: Router) { }
 
   ngOnInit() {
-    var userID = sessionStorage.getItem('userid');
-    this.ticketService.getUserTickets(userID)
+    var userData = JSON.parse(sessionStorage.getItem('userid'));
+    this.ticketService.getUserTickets(userData.id)
     .subscribe(tickets => {
       console.log(tickets);
       this.ticketData = tickets;

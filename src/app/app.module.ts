@@ -15,6 +15,7 @@ import { TicketDetailsComponent } from './components/tickets/ticket-details/tick
 import { UserService } from './services/user.service';
 import { TicketAgentviewComponent } from './components/tickets/ticket-agentview/ticket-agentview.component';
 import { TicketResolveComponent } from './components/tickets/ticket-resolve/ticket-resolve.component';
+import { NavBarComponent } from './components/navigation/nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TicketResolveComponent } from './components/tickets/ticket-resolve/tick
     TicketCreateComponent,
     TicketDetailsComponent,
     TicketAgentviewComponent,
-    TicketResolveComponent
+    TicketResolveComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

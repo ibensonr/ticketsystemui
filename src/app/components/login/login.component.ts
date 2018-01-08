@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
         console.log(user);
         this.userData = user;
         if (this.userData != undefined && this.userData != null) {
-          sessionStorage.setItem('userid', this.userData.id.toString());
 
           if (this.userData.departments == null || this.userData.departments.length == 0) {
             const link = ['/tickets'];
